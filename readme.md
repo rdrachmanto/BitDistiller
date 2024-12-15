@@ -50,10 +50,10 @@ Our results is running by following 3 steps:
 
 ### Example Srcipts
 
+set `n_samples` to between 128 to 512 to prevent `OutOfMemory` errors
+
 <details>
   <summary>LLaMA-2</summary>
-
-  set `n_samples` to between 128 to 512 to prevent `OutOfMemory` errors
   
 1. Get the Clipping result
     ```bash
