@@ -6,7 +6,7 @@ export GLOO_SOCKET_IFNAME="lo"
 export NCCL_SOCKET_IFNAME="lo"
 export WANDB_DISABLED=true  
 
-deepspeed --num_gpus=8 train.py \
+deepspeed --num_gpus=1 train.py \
     --model_name_or_path $MODEL_PATH \
     --data_path $1 \
     --model_max_length 1024 \
@@ -20,11 +20,11 @@ deepspeed --num_gpus=8 train.py \
     --gradient_accumulation_steps 1 \
     --gradient_checkpointing True \
     --evaluation_strategy "steps" \
-    --eval_steps 4 \
+    --eval_steps 16 \
     --load_best_model_at_end True \
     --save_strategy "steps" \
     --save_steps 4 \
-    --save_total_limit 15 \
+    --save_total_limit 2 \
     --learning_rate 8e-6 \
     --lr_scheduler_type "constant" \
     --weight_decay 0. \
